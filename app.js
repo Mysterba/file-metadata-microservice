@@ -4,8 +4,6 @@ var handlebars  = require('express-handlebars'), hbs;
 
 var app = express();
 
-app.set('port', process.env.PORT || 8080);
-
 // send app to router
 require('./router')(app);
 
@@ -20,6 +18,6 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static(path.join(__dirname, 'static')));
 
-app.listen('port', function () {
+app.listen(process.env.PORT, function () {
     console.log("App is up");
 });
